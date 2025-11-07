@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://4hxi6nbi3gy8"]
+
+[ext_resource type="Texture2D" uid="uid://25n5l24t1bbu" path="res://long_frst.jpg" id="1_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://mq0vif1jko05" path="res://player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://cmp4qfk7c3hpp" path="res://cat.tscn" id="3_tlwt5"]
+[ext_resource type="Script" uid="uid://cwdxmuwpeyhp2" path="res://canvas_layer.gd" id="5_036b0"]
+[ext_resource type="Script" uid="uid://c7bm6bdvjry66" path="res://DoorArea.gd" id="5_dwbse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+size = Vector2(0.42124546, 0.103099115)
+
+[sub_resource type="Animation" id="Animation_aqk2v"]
+resource_name = "pulse"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_036b0"]
+_data = {
+&"pulse": SubResource("Animation_aqk2v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkg7o"]
+size = Vector2(583, 619)
+
+[node name="world" type="Node2D"]
+position = Vector2(669, -100)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(993, -542)
+scale = Vector2(3.2152944, 3.2152941)
+texture = ExtResource("1_tlwt5")
+
+[node name="player" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(-501, -218)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-242, 187)
+scale = Vector2(275.13116, -236.42145)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4.2852297, 0.6936765)
+scale = Vector2(28.300806, 7.0564566)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="cat" parent="." instance=ExtResource("3_tlwt5")]
+position = Vector2(-381, -146)
+scale = Vector2(4, 4)
+player_path = NodePath("../player")
+
+[node name="FloatingLabel" type="Label" parent="."]
+offset_left = 1695.0
+offset_top = -526.0
+offset_right = 2150.0
+offset_bottom = -382.0
+theme_override_font_sizes/font_size = 27
+text = "the cat is inside ??
+click space to inspect 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FloatingLabel"]
+libraries = {
+&"": SubResource("AnimationLibrary_036b0")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("5_036b0")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 491.0
+offset_top = -529.0
+offset_right = 713.0
+offset_bottom = -431.0
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+
+[node name="DoorArea" type="Area2D" parent="."]
+script = ExtResource("5_dwbse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+position = Vector2(1959, -398)
+shape = SubResource("RectangleShape2D_pkg7o")
+
+[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_timer_timeout"]
+[connection signal="body_entered" from="DoorArea" to="DoorArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DoorArea" to="DoorArea" method="_on_body_exited"]
