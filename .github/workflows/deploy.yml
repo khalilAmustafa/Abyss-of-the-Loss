@@ -1,0 +1,45 @@
+name: Build and Deploy Godot Web Game
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+# These permissions are required to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    # Links the deployment environment to GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.2.2"
+          include-templates: true
+          use-dotnet: false
+
+      - name: Export for Web
+        run: |
+          mkdir -p exports/web
+          godot --headless --export-release "Web" exports/web/index.html
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: exports/web
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
