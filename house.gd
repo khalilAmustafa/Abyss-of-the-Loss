@@ -191,6 +191,15 @@ func _unlock_closet():
 	closet_label.visible = false
 	_play_closet_sounds()
 	print("Closet opened... the truth is revealed.")
+	# --- Closing-scene transition ---
+	await get_tree().create_timer(5.0).timeout       # wait 5 seconds
+	var fade := get_node_or_null("ClosingFade/FadeRect") as ColorRect
+	if fade:
+		fade.visible = true
+		var tw := create_tween()
+		tw.tween_property(fade, "color:a", 1.0, 2.0)  # fade to black over 2 s
+		await tw.finished
+	get_tree().change_scene_to_file("res://closing.tscn")
 
 
 func _play_closet_sounds() -> void:

@@ -1,4 +1,1 @@
-res://player.gd
-res://player.tscn
-res://main_menu.gd
-res://house.gd
+res://dialog_box.tscn

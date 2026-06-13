@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckim4b5lcash5"]
+[gd_scene load_steps=20 format=3 uid="uid://ckim4b5lcash5"]
 
 [ext_resource type="Script" uid="uid://clt401hwvj5r2" path="res://house.gd" id="1_vy7fe"]
 [ext_resource type="Texture2D" uid="uid://be1ftueijjwmp" path="res://light.jpg" id="2_10qhy"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" path="res://open_closet.mp3" id="12_openc"]
 [ext_resource type="AudioStream" path="res://enter_house.mp3" id="13_enter"]
 [ext_resource type="AudioStream" path="res://light-switch-on.mp3" id="14_switch"]
+[ext_resource type="PackedScene" path="res://touch_controls.tscn" id="15_touch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l6dv"]
 size = Vector2(188, 948)
@@ -187,3 +188,15 @@ stream = ExtResource("13_enter")
 
 [node name="LightSwitchSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_switch")
+
+[node name="ClosingFade" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="FadeRect" type="ColorRect" parent="ClosingFade"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0)
+
+[node name="TouchControls" parent="." instance=ExtResource("15_touch")]

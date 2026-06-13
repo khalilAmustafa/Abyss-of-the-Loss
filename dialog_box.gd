@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var speaker_label: Label = $Box/Margin/VBox/Speaker
 @onready var body_label: Label = $Box/Margin/VBox/Body
 @onready var arrow: Label = $Box/Arrow
+@onready var typing_sound: AudioStreamPlayer = $TypingSound
 
 @export var chars_per_second := 35.0
 
@@ -30,12 +31,16 @@ func show_text(speaker: String, body: String, auto_hide_seconds := 0.0) -> void:
 	_auto_hide = auto_hide_seconds
 	arrow.visible = false
 	_hide_token += 1  # cancel any pending auto-hide from a previous line
+	if typing_sound.stream:
+		typing_sound.stream.loop = true
+		typing_sound.play()
 
 func hide_box() -> void:
 	box.visible = false
 	_typing = false
 	arrow.visible = false
 	_hide_token += 1
+	typing_sound.stop()
 
 func _process(delta: float) -> void:
 	if _typing:
@@ -44,6 +49,7 @@ func _process(delta: float) -> void:
 		if body_label.visible_characters >= body_label.get_total_character_count():
 			body_label.visible_characters = -1  # reveal all
 			_typing = false
+			typing_sound.stop()
 			arrow.visible = true
 			if _auto_hide > 0.0:
 				_start_auto_hide(_auto_hide)

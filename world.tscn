@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://4hxi6nbi3gy8"]
+[gd_scene load_steps=16 format=3 uid="uid://4hxi6nbi3gy8"]
 
 [ext_resource type="Texture2D" uid="uid://25n5l24t1bbu" path="res://long_frst.jpg" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://mq0vif1jko05" path="res://player.tscn" id="2_fj7yv"]
@@ -7,9 +7,10 @@
 [ext_resource type="Script" uid="uid://c7bm6bdvjry66" path="res://DoorArea.gd" id="5_dwbse"]
 [ext_resource type="Script" uid="uid://byia5k5j0agym" path="res://world.gd" id="6_world"]
 [ext_resource type="PackedScene" path="res://dialog_box.tscn" id="7_dlg"]
-[ext_resource type="AudioStream" path="res://rain.mp3" id="8_rain"]
+[ext_resource type="AudioStream" uid="uid://btekaetikmnn3" path="res://rain.mp3" id="8_rain"]
 [ext_resource type="PackedScene" path="res://rain_overlay.tscn" id="9_weather"]
-[ext_resource type="AudioStream" path="res://walk_outside.mp3" id="10_walk"]
+[ext_resource type="AudioStream" uid="uid://drncdk7qp0li1" path="res://walk_outside.mp3" id="10_walk"]
+[ext_resource type="PackedScene" path="res://touch_controls.tscn" id="11_touch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 size = Vector2(1836, 80)
@@ -46,7 +47,7 @@ position = Vector2(918, 560)
 shape = SubResource("RectangleShape2D_tlwt5")
 
 [node name="cat" parent="." unique_id=1677464612 instance=ExtResource("3_tlwt5")]
-position = Vector2(190, 513)
+position = Vector2(174, 542)
 player_path = NodePath("../player")
 
 [node name="FloatingLabel" type="Label" parent="." unique_id=832254425]
@@ -82,13 +83,15 @@ script = ExtResource("5_dwbse")
 position = Vector2(1445, 382)
 shape = SubResource("RectangleShape2D_pkg7o")
 
-[node name="DialogBox" parent="." instance=ExtResource("7_dlg")]
+[node name="DialogBox" parent="." unique_id=1794819577 instance=ExtResource("7_dlg")]
 
-[node name="RainSound" type="AudioStreamPlayer" parent="."]
+[node name="RainSound" type="AudioStreamPlayer" parent="." unique_id=1513478862]
 stream = ExtResource("8_rain")
 volume_db = -10.0
 
-[node name="WeatherLayer" parent="." instance=ExtResource("9_weather")]
+[node name="WeatherLayer" parent="." unique_id=1489169407 instance=ExtResource("9_weather")]
+
+[node name="TouchControls" parent="." instance=ExtResource("11_touch")]
 
 [connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_timer_timeout"]
 [connection signal="body_entered" from="DoorArea" to="DoorArea" method="_on_body_entered"]
