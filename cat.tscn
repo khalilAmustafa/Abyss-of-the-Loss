@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://cmp4qfk7c3hpp"]
+[gd_scene load_steps=33 format=3 uid="uid://cmp4qfk7c3hpp"]
 
 [ext_resource type="Script" uid="uid://c0vdw2mb2gpvx" path="res://cat.gd" id="1_w46py"]
 [ext_resource type="Texture2D" uid="uid://5p58g5mwdhc5" path="res://Cat-6-Idle.png" id="2_2u0g4"]
 [ext_resource type="Texture2D" uid="uid://7ldujlxs0ij4" path="res://Cat-6-Run.png" id="3_2hdoq"]
 [ext_resource type="Texture2D" uid="uid://7thy2k20hkl2" path="res://Cat-6-Walk.png" id="4_2v165"]
+[ext_resource type="AudioStream" path="res://cat_meow.mp3" id="5_meow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eyw7o"]
 atlas = ExtResource("2_2u0g4")
@@ -215,3 +216,6 @@ animation = &"run"
 frame_progress = 0.18141353
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="MeowSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_meow")

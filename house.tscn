@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckim4b5lcash5"]
+[gd_scene load_steps=19 format=3 uid="uid://ckim4b5lcash5"]
 
 [ext_resource type="Script" uid="uid://clt401hwvj5r2" path="res://house.gd" id="1_vy7fe"]
 [ext_resource type="Texture2D" uid="uid://be1ftueijjwmp" path="res://light.jpg" id="2_10qhy"]
@@ -6,12 +6,50 @@
 [ext_resource type="PackedScene" uid="uid://mq0vif1jko05" path="res://player.tscn" id="4_obbqb"]
 [ext_resource type="Texture2D" uid="uid://8xiaf5vvmbfv" path="res://code.png" id="5_kjvky"]
 [ext_resource type="Texture2D" uid="uid://buraqwle8x73w" path="res://closet_closed.png" id="6_10qhy"]
+[ext_resource type="PackedScene" path="res://dialog_box.tscn" id="7_dlg"]
+[ext_resource type="AudioStream" path="res://walk_inside.mp3" id="8_walkin"]
+[ext_resource type="AudioStream" path="res://house_ambience.mp3" id="9_amb"]
+[ext_resource type="AudioStream" path="res://closet_shock.mp3" id="10_shock"]
+[ext_resource type="AudioStream" path="res://closet_scream.mp3" id="11_scream"]
+[ext_resource type="AudioStream" path="res://open_closet.mp3" id="12_openc"]
+[ext_resource type="AudioStream" path="res://enter_house.mp3" id="13_enter"]
+[ext_resource type="AudioStream" path="res://light-switch-on.mp3" id="14_switch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l6dv"]
 size = Vector2(188, 948)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3v7f"]
 size = Vector2(339, 551)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puzzle"]
+bg_color = Color(0.07, 0.08, 0.11, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.66, 0.95, 0.55)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.12, 0.14, 0.18, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.66, 0.95, 0.5)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="house" type="Node2D"]
 position = Vector2(768, -513)
@@ -51,32 +89,51 @@ metadata/_edit_use_anchors_ = true
 
 [node name="mathUI" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="mathUI"]
-anchors_preset = -1
-anchor_left = 0.81500006
-anchor_top = -0.49
-anchor_right = 0.81500006
-anchor_bottom = -0.49
-offset_left = -204.88007
-offset_top = -184.47998
-offset_right = 222.11993
-offset_bottom = 8.52002
-theme_override_font_sizes/font_size = 33
+[node name="Backdrop" type="ColorRect" parent="mathUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.45)
+
+[node name="Panel" type="Panel" parent="mathUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -150.0
+offset_right = 260.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_puzzle")
+
+[node name="Margin" type="MarginContainer" parent="mathUI/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="mathUI/Panel/Margin"]
+alignment = 1
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="mathUI/Panel/Margin/VBox"]
+theme_override_font_sizes/font_size = 26
 text = "answer to turn the light on
 3x -15=0
 20 - 6y=-10
 x + y = ??"
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="answer" type="LineEdit" parent="mathUI"]
-offset_left = 794.0
-offset_top = -297.00003
-offset_right = 1086.5625
-offset_bottom = -206.00003
-scale = Vector2(0.9219774, 0.9219774)
-pivot_offset = Vector2(0, -10)
+[node name="answer" type="LineEdit" parent="mathUI/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 46)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+theme_override_styles/focus = SubResource("StyleBoxFlat_input")
 alignment = 1
+placeholder_text = "type your answer"
 
 [node name="code" type="Sprite2D" parent="."]
 position = Vector2(165, 37)
@@ -87,6 +144,7 @@ texture = ExtResource("5_kjvky")
 [node name="player" parent="." instance=ExtResource("4_obbqb")]
 position = Vector2(-587, 317)
 scale = Vector2(0.44000074, 0.44000074)
+footstep_sound = ExtResource("8_walkin")
 
 [node name="closet" type="Area2D" parent="."]
 
@@ -108,3 +166,24 @@ text = "open the closet
 press \"space\""
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DialogBox" parent="." instance=ExtResource("7_dlg")]
+
+[node name="HouseAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_amb")
+volume_db = -10.0
+
+[node name="ShockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_shock")
+
+[node name="ScreamSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_scream")
+
+[node name="OpenClosetSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_openc")
+
+[node name="EnterSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_enter")
+
+[node name="LightSwitchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_switch")

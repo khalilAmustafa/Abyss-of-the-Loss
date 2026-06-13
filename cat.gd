@@ -4,14 +4,19 @@ extends CharacterBody2D
 @export var run_speed := 400.0
 @export var follow_time := 4.0
 @export var stop_distance := 60.0  # stop at 60px on X axis
+@export var despawn_x := 1500.0  # world X where the cat reaches the house and vanishes
 @export var player_path: NodePath
 
 var player
 var timer := 0.0
 var running := false
 
+@onready var meow = $MeowSound
+
 func _ready():
 	player = get_node(player_path)
+	if meow:
+		meow.play()  # greet on spawn
 
 func _physics_process(delta):
 	if !player: 
@@ -20,8 +25,10 @@ func _physics_process(delta):
 	timer += delta
 
 	# After time, run away
-	if timer > follow_time:
+	if timer > follow_time and not running:
 		running = true
+		if meow:
+			meow.play()  # startled meow as it bolts
 
 	# RUN AWAY BEHAVIOR
 	if running:
@@ -30,8 +37,8 @@ func _physics_process(delta):
 		velocity.x = run_speed
 		move_and_slide()
 
-		# Remove cat when far enough
-		if global_position.x > player.global_position.x + 600:
+		# Remove cat once it reaches the house
+		if global_position.x > despawn_x:
 			queue_free()
 		return
 

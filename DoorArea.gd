@@ -4,20 +4,20 @@ extends Area2D
 
 var player_inside = false
 
-func _ready():
-	print("Door ready")
+@onready var dialog = get_node_or_null("../DialogBox")
 
 func _on_body_entered(body):
 	if body.name == "player":
 		player_inside = true
-		print("Player entered door area")
+		if dialog:
+			dialog.show_text("GUY", "the cat slipped inside the house...\nPress SPACE to follow.")
 
 func _on_body_exited(body):
 	if body.name == "player":
 		player_inside = false
-		print("Player left door area")
+		if dialog:
+			dialog.hide_box()
 
 func _process(delta):
-	if player_inside and Input.is_action_just_pressed("ui_accept"):
-		print("Loading next scene...")
+	if player_inside and Input.is_action_just_pressed("interact"):
 		get_tree().change_scene_to_file(target_scene)

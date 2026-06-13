@@ -1,4 +1,4 @@
-res://player.tscn
 res://player.gd
-res://house.tscn
-res://world.tscn
+res://player.tscn
+res://main_menu.gd
+res://house.gd
