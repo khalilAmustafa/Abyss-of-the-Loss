@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1781364419
+::res://::1781367051
 .png::CompressedTexture2D::3385194470324751897::1781356719::1781357328::1::::<><><>0<>0<>64347306d4911ade05f02df3da99efed<>res://.godot/imported/.png-05675a12d3f10112da9382ffea612140.ctex::
 animation-removebg-preview.png::CompressedTexture2D::938624643311143023::1781345640::1781346407::1::::<><><>0<>0<>ec38003cb249518efaa3e52305d00389<>res://.godot/imported/animation-removebg-preview.png-6d4748aadc525452f23648fee4c5a8d7.ctex::
 Asset UI Gradient.png::CompressedTexture2D::8278075901253445475::1781345640::1781346407::1::::<><><>0<>0<>9c0f2cee3d38ac983d2cd39d114899db<>res://.godot/imported/Asset UI Gradient.png-6b19f31967c2e255fb8efdc7a79d8fff.ctex::
@@ -27,21 +27,24 @@ control.tscn::PackedScene::1287013276423397592::1781345640::0::1::::<><><>0<>0<>
 dark.jpg::CompressedTexture2D::8613521461523347417::1781345640::1781346407::1::::<><><>0<>0<>4592f1306159c6ce2cf01f3e3f75117b<>res://.godot/imported/dark.jpg-963ff72e1a49f995d26bfff3a20dc6ae.ctex::
 dark.png::CompressedTexture2D::2516531308010494808::1781345640::1781346407::1::::<><><>0<>0<>80432a10321fb2cabe917e75ce9ab55e<>res://.godot/imported/dark.png-ea1192dfafacd8a2504a736f460a1f60.ctex::
 dialog_box.gd::GDScript::4407622013084005246::1781362812::0::1::::<>CanvasLayer<><>0<>0<><>::
-dialog_box.tscn::PackedScene::-1::1781364288::0::1::::<><><>0<>0<><>::res://dialog_box.gd<>res://typing.mp3
+dialog_box.tscn::PackedScene::-1::1781364785::0::1::::<><><>0<>0<><>::res://dialog_box.gd<>res://typing.mp3
 dog.gd::GDScript::4851063136923224516::1781345641::0::1::::<>CharacterBody2D<><>0<>0<><>::
 doging.tscn::PackedScene::6895332445864774057::1781345641::0::1::::<><><>0<>0<><>::uid://cbd5kidccais7::::res://dog.gd<>uid://dh34ji3dkave0::::res://dog_no_bg.png
 dog_no_bg.png::CompressedTexture2D::7710163862185593973::1781345641::1781346407::1::::<><><>0<>0<>de9e819d45de79d0d7d1fd5e6616da0c<>res://.godot/imported/dog_no_bg.png-5e0543f9558032a581f5b7673a2da5e9.ctex::
 DoorArea.gd::GDScript::7021732763206178837::1781351331::0::1::::<>Area2D<><>0<>0<><>::
 door_area.gd::GDScript::8557641152344674992::1781345641::0::1::::<>Area2D<><>0<>0<><>::
 enter_house.mp3::AudioStreamMP3::515838620530032545::1781359838::1781359929::1::::<><><>0<>0<>13ff6c80f615f080cb67286b348fb090<>res://.godot/imported/enter_house.mp3-28a3a31790101b205966b386017e472c.mp3str::
-export_presets.cfg::TextFile::-1::1781345641::0::1::::<><><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1781367051::0::1::::<><><>0<>0<><>::
 forest.png::CompressedTexture2D::3130236058976427323::1781345641::1781346407::1::::<><><>0<>0<>4e4d36e1cf3b5a21666125ddbfa2a3eb<>res://.godot/imported/forest.png-b285122a4518cd5111a3fb02f5b6bd53.ctex::
 G-walk.png::CompressedTexture2D::216323174673681815::1781355314::1781355452::1::::<><><>0<>0<>5b3548b4109d073984031dad893863ec<>res://.godot/imported/G-walk.png-e4c2b0184caef0df52e7404b7ecec20f.ctex::
 house.gd::GDScript::5585948639818309997::1781362000::0::1::::<>Node2D<><>0<>0<><>::
-house.tscn::PackedScene::5492025317105409748::1781363686::0::1::::<><><>0<>0<><>::uid://clt401hwvj5r2::::res://house.gd<>uid://be1ftueijjwmp::::res://light.jpg<>uid://duypo7wsv0j4d::::res://dark.jpg<>uid://mq0vif1jko05::::res://player.tscn<>uid://8xiaf5vvmbfv::::res://code.png<>uid://buraqwle8x73w::::res://closet_closed.png<>res://dialog_box.tscn<>res://walk_inside.mp3<>res://house_ambience.mp3<>res://closet_shock.mp3<>res://closet_scream.mp3<>res://open_closet.mp3<>res://enter_house.mp3<>res://light-switch-on.mp3<>res://touch_controls.tscn
+house.tscn::PackedScene::5492025317105409748::1781366498::0::1::::<><><>0<>0<><>::uid://clt401hwvj5r2::::res://house.gd<>uid://be1ftueijjwmp::::res://light.jpg<>uid://duypo7wsv0j4d::::res://dark.jpg<>uid://mq0vif1jko05::::res://player.tscn<>uid://8xiaf5vvmbfv::::res://code.png<>uid://buraqwle8x73w::::res://closet_closed.png<>res://dialog_box.tscn<>uid://c4tmhs6a7xorx::::res://walk_inside.mp3<>uid://636ddkwfxdo::::res://house_ambience.mp3<>uid://lna5fntg1yoq::::res://closet_shock.mp3<>uid://bi02nsvb4jcfm::::res://closet_scream.mp3<>uid://b4wmg5sp644sg::::res://open_closet.mp3<>uid://hl410pb2bprl::::res://enter_house.mp3<>uid://b7hr44q3iwihi::::res://light-switch-on.mp3<>res://touch_controls.tscn
 house_ambience.mp3::AudioStreamMP3::65751308472806360::1781359280::1781359454::1::::<><><>0<>0<>64b098994219d0bd141b456084acac1a<>res://.godot/imported/house_ambience.mp3-b6b0f5748afc1492aa90e61acadccffe.mp3str::
 hover.mp3::AudioStreamMP3::4391941511584264328::1781360382::1781360629::1::::<><><>0<>0<>bdf99ad47304771ce9594d987a0f2b74<>res://.godot/imported/hover.mp3-1a9b5bb401dde50543f21e58325fdc17.mp3str::
 icon.svg::CompressedTexture2D::5641662570068801691::1781345641::1781346406::1::::<><><>0<>0<>afac497ac35b4c5b21a674ed429cd4a4<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+index.apple-touch-icon.png::CompressedTexture2D::5526450143432721734::1781367051::1781367056::1::::<><><>0<>0<>a0e7876e07ee975cd4ca3b4e8c19d5d2<>res://.godot/imported/index.apple-touch-icon.png-8085a11cc297d91deb55511843765958.ctex::
+index.icon.png::CompressedTexture2D::7608777357113823684::1781367051::1781367056::1::::<><><>0<>0<>c3e500b931f769cb03082b4e03f0c1bb<>res://.godot/imported/index.icon.png-5665fad188e88d1e882500a4376bfe02.ctex::
+index.png::CompressedTexture2D::5782940218981674058::1781367050::1781367056::1::::<><><>0<>0<>9684bd08ebe36e7b3150d9a6e58eab48<>res://.godot/imported/index.png-5122033cac747157decad52589e2295c.ctex::
 left.png::CompressedTexture2D::5416129377209852881::1781363401::1781363614::1::::<><><>0<>0<>e94a8e85e1e269445949430627ccd2c4<>res://.godot/imported/left.png-fa356146eb6b3e234119f034eced474c.ctex::
 light-switch-on.mp3::AudioStreamMP3::4647999850466609222::1781360431::1781360629::1::::<><><>0<>0<>b911b202b451acb390c3c81cce6804cb<>res://.godot/imported/light-switch-on.mp3-42dad1de6d39d0a60da7e1447809b339.mp3str::
 light.jpg::CompressedTexture2D::2721188451920920663::1781345641::1781346407::1::::<><><>0<>0<>9ee0e9be6db212a803b240bf130327cd<>res://.godot/imported/light.jpg-e2d2a24d92bb6c6f94c9ceb670497fc9.ctex::
@@ -71,7 +74,7 @@ right.png::CompressedTexture2D::6699803506317434709::1781363359::1781363614::1::
 space.png::CompressedTexture2D::3199114333554055352::1781363450::1781363614::1::::<><><>0<>0<>68013830fa2b5baacd574faa55803d64<>res://.godot/imported/space.png-81e1b11cffac9addd923b9f4eb36afe7.ctex::
 title_abyss.png::CompressedTexture2D::5576515420847634379::1781358525::1781358755::1::::<><><>0<>0<>bea5fb21632898f97e5ebb69b3a56286<>res://.godot/imported/title_abyss.png-aac50036008bb0eade258321331dbb7e.ctex::
 touch_controls.gd::GDScript::9218639418519479936::1781364288::0::1::::<>CanvasLayer<><>0<>0<><>::
-touch_controls.tscn::PackedScene::-1::1781364295::0::1::::<><><>0<>0<><>::res://touch_controls.gd<>res://left.png<>res://right.png<>res://space.png
+touch_controls.tscn::PackedScene::-1::1781364477::0::1::::<><><>0<>0<><>::res://touch_controls.gd<>res://left.png<>res://right.png<>res://space.png
 typing.mp3::AudioStreamMP3::1611360762028424103::1781362719::1781362847::1::::<><><>0<>0<>1a9a5623f0bbe6c694fa2192f55e4638<>res://.godot/imported/typing.mp3-65a44cbffe985ac82635c5dc0ac358d3.mp3str::
 walk.png::CompressedTexture2D::4214486010472309160::1781345641::1781346406::1::::<><><>0<>0<>7de57f615d55beecfef6b79b33baec61<>res://.godot/imported/walk.png-9e2b3f0687548f2d45a4214880a644d7.ctex::
 walk_inside.mp3::AudioStreamMP3::6848283108039731849::1781359280::1781359454::1::::<><><>0<>0<>254c72048fb2232f589d67f7620f48da<>res://.godot/imported/walk_inside.mp3-d5b0548fabad66d716cdc49a3821731a.mp3str::
