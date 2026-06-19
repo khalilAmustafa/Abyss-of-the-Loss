@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://4hxi6nbi3gy8"]
+
+[ext_resource type="Texture2D" uid="uid://25n5l24t1bbu" path="res://assets/images/backgrounds/long_frst.jpg" id="1_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://mq0vif1jko05" path="res://scenes/player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://cmp4qfk7c3hpp" path="res://scenes/cat.tscn" id="3_tlwt5"]
+[ext_resource type="Script" uid="uid://cwdxmuwpeyhp2" path="res://scripts/canvas_layer.gd" id="5_036b0"]
+[ext_resource type="Script" uid="uid://c7bm6bdvjry66" path="res://scripts/DoorArea.gd" id="5_dwbse"]
+[ext_resource type="Script" uid="uid://byia5k5j0agym" path="res://scripts/world.gd" id="6_world"]
+[ext_resource type="PackedScene" path="res://scenes/dialog_box.tscn" id="7_dlg"]
+[ext_resource type="AudioStream" uid="uid://btekaetikmnn3" path="res://assets/audio/rain.mp3" id="8_rain"]
+[ext_resource type="PackedScene" path="res://scenes/rain_overlay.tscn" id="9_weather"]
+[ext_resource type="AudioStream" uid="uid://drncdk7qp0li1" path="res://assets/audio/walk_outside.mp3" id="10_walk"]
+[ext_resource type="PackedScene" path="res://scenes/touch_controls.tscn" id="11_touch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+size = Vector2(1836, 80)
+
+[sub_resource type="Animation" id="Animation_aqk2v"]
+resource_name = "pulse"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_036b0"]
+_data = {
+&"pulse": SubResource("Animation_aqk2v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkg7o"]
+size = Vector2(220, 240)
+
+[node name="world" type="Node2D" unique_id=1727405022]
+script = ExtResource("6_world")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=328330863]
+position = Vector2(932.9999, 316)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_tlwt5")
+
+[node name="player" parent="." unique_id=439536933 instance=ExtResource("2_fj7yv")]
+position = Vector2(133, 475)
+scale = Vector2(0.14, 0.14)
+footstep_sound = ExtResource("10_walk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1266444252]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1866762003]
+position = Vector2(918, 560)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="cat" parent="." unique_id=1677464612 instance=ExtResource("3_tlwt5")]
+position = Vector2(174, 542)
+player_path = NodePath("../player")
+
+[node name="FloatingLabel" type="Label" parent="." unique_id=832254425]
+offset_left = 1350.0
+offset_top = 160.0
+offset_right = 1650.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 27
+text = "the cat is inside ??
+click space to inspect 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FloatingLabel" unique_id=77830647]
+libraries/ = SubResource("AnimationLibrary_036b0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=368744809]
+script = ExtResource("5_036b0")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=75950391]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 624.0
+offset_bottom = 70.0
+
+[node name="Timer" type="Timer" parent="CanvasLayer" unique_id=1263998457]
+
+[node name="DoorArea" type="Area2D" parent="." unique_id=1129471209]
+script = ExtResource("5_dwbse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea" unique_id=1018567818]
+position = Vector2(1445, 382)
+shape = SubResource("RectangleShape2D_pkg7o")
+
+[node name="DialogBox" parent="." unique_id=1794819577 instance=ExtResource("7_dlg")]
+
+[node name="RainSound" type="AudioStreamPlayer" parent="." unique_id=1513478862]
+stream = ExtResource("8_rain")
+volume_db = -10.0
+
+[node name="WeatherLayer" parent="." unique_id=1489169407 instance=ExtResource("9_weather")]
+
+[node name="TouchControls" parent="." instance=ExtResource("11_touch")]
+
+[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_timer_timeout"]
+[connection signal="body_entered" from="DoorArea" to="DoorArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DoorArea" to="DoorArea" method="_on_body_exited"]

@@ -39,18 +39,21 @@ At first, Noah has no idea about the existence of his second self.
 ## Project Structure
 
 ```
-Apyss_of_the_loss_final/
-├── player.gd / player.tscn       # Player character logic and scene
-├── cat.gd / cat.tscn             # Cat companion logic and scene
-├── dog.gd / doging.tscn          # Dog companion logic and scene
-├── house.gd / house.tscn         # House environment
-├── world.gd / world.tscn         # Main world/overworld scene
-├── control.gd / control.tscn     # Game control / menu scene
-├── canvas_layer.gd               # HUD and UI overlay
-├── DoorArea.gd / door_area.gd    # Door interaction logic
-├── export_presets.cfg            # Godot export configurations
-├── project.godot                 # Godot project settings
-└── .github/workflows/            # CI/CD workflows
+Abyss-of-the-Loss/
+|-- assets/
+|   |-- audio/              # Music, ambience, and sound effects
+|   `-- images/
+|       |-- backgrounds/    # Scene and menu backgrounds
+|       |-- characters/     # Player, cat, and dog sprites
+|       |-- props/          # Interactive object art
+|       `-- ui/             # Buttons, title art, icons, touch controls
+|-- scenes/                 # Godot scenes (.tscn)
+|-- scripts/                # GDScript files and UID metadata
+|-- shaders/                # Shader resources
+|-- docs/                   # Configured web export output
+|-- exports/web/            # Archived root web export copy
+|-- export_presets.cfg      # Godot export configuration
+`-- project.godot           # Godot project settings
 ```
 
 **Assets:** Sprite sheets and backgrounds for the player, cat, dog, forest, house interiors, closet states (open/closed), and lighting variants (light/dark).
