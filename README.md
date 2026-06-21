@@ -27,12 +27,12 @@ At first, Noah has no idea about the existence of his second self.
 
 ## Features
 
-- **Animated player character** — idle and walk sprite animations
-- **Animal companions** — a cat (idle, walk, run animations) and a dog
-- **Multiple environments** — house scene and forest scenes with parallax/background art
-- **Interactive objects** — doors with area detection, openable closets
-- **Lighting system** — dynamic light/dark background states
-- **HUD/UI layer** — canvas layer overlay for interface elements
+- **Animated player character** : idle and walk sprite animations
+- **Animal companions** : a cat (idle, walk, run animations) and a dog
+- **Multiple environments** : house scene and forest scenes with parallax/background art
+- **Interactive objects** : doors with area detection, openable closets
+- **Lighting system** : dynamic light/dark background states
+- **HUD/UI layer** " : canvas layer overlay for interface elements
 
 ---
 
@@ -95,14 +95,14 @@ Abyss-of-the-Loss/
 
 ## Built With
 
-- [Godot 4](https://godotengine.org/) — Game engine
-- GDScript — Scripting language (100% of codebase)
+- [Godot 4](https://godotengine.org/) : Game engine
+- GDScript : Scripting language (100% of codebase)
 
 ---
 
 ## Author
 
-**khalilAmustafa** — [GitHub](https://github.com/khalilAmustafa)
+**khalilAmustafa** : [GitHub](https://github.com/khalilAmustafa)
 
 ---
 
