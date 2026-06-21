@@ -6,20 +6,20 @@ A 2D psychological horror/mystery game built with **Godot Engine** and **GDScrip
 
 ## About
 
-*Abyss of the Loss* represents a mysterious and haunting realm that symbolizes both physical darkness and inner despair. The word "Abyss" evokes a vast, endless void — an unknown place filled with danger, secrets, and forgotten souls. "The Lost" refers to those who have vanished: beings, memories, or fragments of humanity trapped between existence and oblivion.
+*Abyss of the Loss* represents a mysterious and haunting realm that symbolizes both physical darkness and inner despair. The word "Abyss" evokes a vast, endless void, an unknown place filled with danger, secrets, and forgotten souls. "The Lost" refers to those who have vanished: beings, memories, or fragments of humanity trapped between existence and oblivion.
 
 ### Story
 
 The game follows a young man who suddenly loses his loyal dog, **Doby**, while walking through a dark forest. Desperate and confused, Noah searches every corner of the woods until he stumbles upon an abandoned house — a place that seems to call to him.
 
-Inside, Noah discovers strange clues and hidden puzzles that appear to lead to Doby's whereabouts. Each mystery he solves pulls him deeper into the house's secrets, and deeper into his own mind. But when Noah reaches the final puzzle, he's faced with a truth he never expected — one that shatters his perception of reality and forces him to confront the darkness within himself.
+Inside, Noah discovers strange clues and hidden puzzles that appear to lead to Doby's whereabouts. Each mystery he solves pulls him deeper into the house's secrets, and deeper into his own mind. But when Noah reaches the final puzzle, he's faced with a truth he never expected, one that shatters his perception of reality and forces him to confront the darkness within himself.
 
 ### Main Character 
 
 he suffers from **Dissociative Identity Disorder (DID)**, with two contrasting identities living within him (overlapping with traits of Bipolar Personality Disorder):
 
-- **The Gentle Self** — Kind, selfless, and empathetic. The last trace of his humanity.
-- **The Dark Self** — Cold, unpredictable, and psychotic. Born from pain and buried memories.
+- **The Gentle Self** : Kind, selfless, and empathetic. The last trace of his humanity.
+- **The Dark Self** : Cold, unpredictable, and psychotic. Born from pain and buried memories.
 
 At first, Noah has no idea about the existence of his second self.
 
