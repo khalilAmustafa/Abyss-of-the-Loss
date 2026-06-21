@@ -1,4 +1,4 @@
-# Abyss of the Loss
+# Abyss of the Lost
 
 A 2D psychological horror/mystery game built with **Godot Engine** and **GDScript**.
 
